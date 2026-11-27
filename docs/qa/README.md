@@ -11,10 +11,10 @@
 | # | Documento | Tipo de documento (ISO/IEC/IEEE 29119-3) | O que responde | Status |
 |---|---|---|---|---|
 | 01 | [Plano de Testes](01-plano-de-testes.md) | *Test Plan* | O que, como, quando e com quais critérios testar; riscos | ✅ Concluído |
-| 02 | [Casos de Teste Web](02-casos-de-teste-web.md) | *Test Design Specification* + *Test Case Specification* | Quais condições e casos validam o site | 🚧 Em andamento |
-| 03 | [Casos de Teste API](03-casos-de-teste-api.md) | *Test Design Specification* + *Test Case Specification* | Quais condições e casos validam a API REST | 🚧 Em andamento |
-| 04 | [Report de Bugs](04-report-de-bugs.md) | *Incident Report* | Quais defeitos foram encontrados, com evidências | 🚧 Em andamento |
-| 05 | [Automação Web — Cypress](05-automacao-web-cypress.md) | *Test Procedure Specification* + *Test Execution Log* | Quais casos Web foram automatizados e como executá-los | 🚧 Em andamento |
+| 02 | [Casos de Teste Web](02-casos-de-teste-web.md) | *Test Design Specification* + *Test Case Specification* | Quais condições e casos validam o site | ✅ Concluído |
+| 03 | [Casos de Teste API](03-casos-de-teste-api.md) | *Test Design Specification* + *Test Case Specification* | Quais condições e casos validam a API REST | ✅ Concluído |
+| 04 | [Report de Bugs](04-report-de-bugs.md) | *Incident Report* | Quais defeitos foram encontrados, com evidências | ✅ Concluído |
+| 05 | [Automação Web — Cypress](05-automacao-web-cypress.md) | *Test Procedure Specification* + *Test Execution Log* | Quais casos Web foram automatizados e como executá-los | ✅ Concluído |
 | 06 | [Automação API — JavaScript](06-automacao-api.md) | *Test Procedure Specification* + *Test Execution Log* | Quais casos de API foram automatizados e como executá-los | 🚧 Em andamento |
 | 07 | [Performance — k6](07-performance-k6.md) | *Test Procedure Specification* + *Test Result* | Como a aplicação se comporta sob carga | 🚧 Em andamento |
 | 08 | [Relatório de Conclusão](08-relatorio-de-conclusao.md) | *Test Completion Report* | O que foi testado, resultados, métricas e risco residual | 🚧 Em andamento |
@@ -60,7 +60,7 @@ Cada caso de teste aponta para o **requisito** e o **risco** que cobre; cada bug
 | `PERF-NN` | Cenário de performance | `PERF-03`: jornada de compra |
 | `BUG-NNN` | Defeito registrado | `BUG-001` |
 
-**Códigos de funcionalidade (`<FUNC>`):** `CAD` Cadastro · `LOG` Login · `AUTH` Autenticação (API) · `USR` Usuário · `PRD` Produtos · `CAR` Carrinho · `CHK` Checkout · `SEC` Segurança.
+**Códigos de funcionalidade (`<FUNC>`):** `CAD` Cadastro · `LOG` Login · `AUTH` Autenticação (API) · `USR` Usuário · `PRD` Produtos · `CAR` Carrinho · `CHK` Checkout · `SEC` Segurança · `GEN` Geral e contrato (API).
 
 ### Severidade e prioridade dos defeitos
 

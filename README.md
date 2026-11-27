@@ -43,25 +43,27 @@ As regras de negócio que mais impactam o cliente, e por isso receberam mais ate
 | # | Entregável | Descrição | Status |
 |---|---|---|---|
 | 1 | [Plano de Testes](docs/qa/01-plano-de-testes.md) | Escopo, registro de riscos (produto × projeto), estratégia, técnicas, critérios e cronograma, conforme ISO/IEC/IEEE 29119-3 | ✅ Concluído |
-| 2 | [Casos de Teste Web](docs/qa/02-casos-de-teste-web.md) | Especificação dos casos de teste do site | 🚧 Em andamento |
-| 3 | [Casos de Teste API](docs/qa/03-casos-de-teste-api.md) | Especificação dos casos de teste da API REST | 🚧 Em andamento |
-| 4 | [Report de Bugs](docs/qa/04-report-de-bugs.md) | Defeitos encontrados, com evidências e Issues no GitHub | 🚧 Em andamento |
-| 5 | [Automação Web — Cypress](docs/qa/05-automacao-web-cypress.md) | Casos E2E automatizados (`cypress/e2e/`) | 🚧 Em andamento |
+| 2 | [Casos de Teste Web](docs/qa/02-casos-de-teste-web.md) | Especificação dos casos de teste do site | ✅ Concluído |
+| 3 | [Casos de Teste API](docs/qa/03-casos-de-teste-api.md) | Especificação dos casos de teste da API REST | ✅ Concluído |
+| 4 | [Report de Bugs](docs/qa/04-report-de-bugs.md) | Defeitos encontrados, com evidências e Issues no GitHub | ✅ Concluído |
+| 5 | [Automação Web — Cypress](docs/qa/05-automacao-web-cypress.md) | Casos E2E automatizados (`cypress/e2e/`) | ✅ Concluído |
 | 6 | [Automação API — JavaScript](docs/qa/06-automacao-api.md) | Casos de API automatizados (`test/api/`) | 🚧 Em andamento |
 | 7 | [Performance — k6](docs/qa/07-performance-k6.md) | Cenários de smoke, carga e jornada de compra (`performance/`) | 🚧 Em andamento |
 | 8 | [Relatório de Conclusão](docs/qa/08-relatorio-de-conclusao.md) | Resultados, métricas e risco residual | 🚧 Em andamento |
 
 ## 🐞 Destaques: bugs encontrados
 
-Alguns dos defeitos reais confirmados durante os testes (detalhes, passos e evidências no [Report de Bugs](docs/qa/04-report-de-bugs.md)):
+**7 defeitos reais** confirmados e reproduzidos com evidências (logs, prints e consulta ao banco). Detalhes, passos e análise de causa no [Report de Bugs](docs/qa/04-report-de-bugs.md):
 
-| Severidade | Defeito |
-|---|---|
-| 🔴 Crítica | Checkouts simultâneos do mesmo carrinho retornam erro 500 e **baixam o estoque sem gerar pedido**: o estoque "some" sem venda |
-| 🟠 Alta | Corpo de requisição muito grande retorna **500** em vez de **413** |
-| 🟡 Média | `quantity: true` é aceito como quantidade 1 |
-| 🟡 Média | `DELETE /api/cart/items/{id}` com id inválido retorna 404, enquanto as outras rotas retornam 400 |
-| 🟡 Média | Cadastro aceita senha formada só por espaços |
+| ID | Severidade | Defeito |
+|---|---|---|
+| BUG-001 | 🔴 Crítica | 5 checkouts simultâneos do mesmo carrinho gravam **5 pedidos** e baixam **5 unidades** do estoque, mas o cliente recebe 1 sucesso e 4 erros 500 |
+| BUG-002 | 🟡 Média | *Open redirect*: `/login?voltar=/\example.com` leva o cliente para um site externo após o login |
+| BUG-003 | 🟡 Média | Corpo de requisição grande demais retorna **500** em vez de **413** |
+| BUG-004 | 🟡 Média | Quantidade do carrinho aceita `true`, `"2"`, `"1e1"` (vira 10) e `null`, contrariando o contrato `integer` |
+| BUG-005 | 🟢 Baixa | Cadastro aceita senha formada só por espaços |
+| BUG-006 | 🟢 Baixa | Prévia do checkout com carrinho vazio cobra R$ 20,00 de frete |
+| BUG-007 | 🟢 Baixa | Esquema `bearer` em minúsculas é recusado (RFC 9110) |
 
 ## 🧠 Abordagem
 
@@ -93,7 +95,7 @@ Exemplo, a tabela de decisão usada para validar o total da compra (1 Teclado de
 
 ## ▶️ Como executar
 
-**Pré-requisitos:** Node.js 18+ e npm. Para performance, o [k6](https://grafana.com/docs/k6/latest/set-up/install-k6/) instalado.
+**Pré-requisitos:** Node.js 18+ e npm. Para os testes Web, o Google Chrome. Para performance, o [k6](https://grafana.com/docs/k6/latest/set-up/install-k6/) instalado.
 
 ```bash
 git clone https://github.com/lilyanlacerda/ppp2026-02.git
@@ -107,7 +109,7 @@ Suba a aplicação (fica em http://localhost:3030):
 npm start
 ```
 
-Em outro terminal, rode as suítes:
+Em outro terminal, rode as suítes (o `npm run test:web` sobe a aplicação sozinho, se ela não estiver rodando):
 
 ```bash
 npm run test:api
@@ -121,7 +123,7 @@ npm run test:web
 npm run test:perf
 ```
 
-> ⚠️ O banco é em memória: reiniciar a aplicação restaura os dados de teste. Os scripts das suítes estarão disponíveis conforme os entregáveis 5, 6 e 7 forem concluídos.
+> ⚠️ O banco é em memória: reiniciar a aplicação restaura os dados de teste. A suíte Web já está disponível; as de API e performance entram com os entregáveis 6 e 7.
 
 ## 📁 Estrutura do repositório
 
@@ -145,4 +147,4 @@ A aplicação **Loja PPP** foi criada por **Julio de Lima** para estudo e práti
 
 ## 📫 Contato
 
-**Lilyan Lacerda** · [GitHub](https://github.com/lilyanlacerda) · [LinkedIn](https://www.linkedin.com/in/lilyanlacerda/)
+**Lilyan Lacerda** · [GitHub](https://github.com/lilyanlacerda) · LinkedIn: _adicione aqui o link do seu perfil_
