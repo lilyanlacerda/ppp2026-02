@@ -12,7 +12,12 @@
     "api:run": "mocha \"test/api/*.test.mjs\"",
     "api:run:bugs": "mocha \"test/api/bugs-conhecidos/*.test.mjs\" --reporter-option reportFilename=relatorio-bugs-conhecidos",
     "test:api": "start-server-and-test start http://localhost:3030/api/health api:run",
-    "test:api:bugs": "start-server-and-test start http://localhost:3030/api/health api:run:bugs"
+    "test:api:bugs": "start-server-and-test start http://localhost:3030/api/health api:run:bugs",
+    "perf:01": "k6 run --summary-export docs/qa/evidencias/k6/perf-01-resumo.json --out web-dashboard=export=docs/qa/evidencias/k6/perf-01-dashboard.html performance/perf-01-smoke.js",
+    "perf:02": "k6 run --summary-export docs/qa/evidencias/k6/perf-02-resumo.json --out web-dashboard=export=docs/qa/evidencias/k6/perf-02-dashboard.html performance/perf-02-carga-login.js",
+    "perf:03": "k6 run --summary-export docs/qa/evidencias/k6/perf-03-resumo.json --out web-dashboard=export=docs/qa/evidencias/k6/perf-03-dashboard.html performance/perf-03-jornada-compra.js",
+    "perf:all": "node performance/run-all.mjs",
+    "test:perf": "start-server-and-test start http://localhost:3030/api/health perf:all"
   },
   "engines": {
     "node": ">=18"

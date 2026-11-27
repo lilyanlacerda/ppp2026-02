@@ -1,0 +1,310 @@
+
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+
+     execution: local
+        script: performance/perf-02-carga-login.js
+ web dashboard: http://127.0.0.1:5665
+        output: -
+
+     scenarios: (100.00%) 2 scenarios, 21 max VUs, 1m30s max duration (incl. graceful stop):
+              * carga_login: Up to 20 looping VUs for 1m0s over 3 stages (gracefulRampDown: 5s, exec: login, gracefulStop: 30s)
+              * leitura: 1 looping VUs for 1m0s (exec: leitura, gracefulStop: 30s)
+
+
+running (0m01.0s), 01/21 VUs, 1 complete and 0 interrupted iterations
+carga_login   [   2% ] 00/20 VUs  0m01.0s/1m00.0s
+leitura       [   2% ] 1 VUs      0m01.0s/1m0s
+
+running (0m02.0s), 02/21 VUs, 3 complete and 0 interrupted iterations
+carga_login   [   3% ] 01/20 VUs  0m02.0s/1m00.0s
+leitura       [   3% ] 1 VUs      0m02.0s/1m0s
+
+running (0m03.0s), 02/21 VUs, 6 complete and 0 interrupted iterations
+carga_login   [   5% ] 01/20 VUs  0m03.0s/1m00.0s
+leitura       [   5% ] 1 VUs      0m03.0s/1m0s
+
+running (0m04.0s), 03/21 VUs, 9 complete and 0 interrupted iterations
+carga_login   [   7% ] 02/20 VUs  0m04.0s/1m00.0s
+leitura       [   7% ] 1 VUs      0m04.0s/1m0s
+
+running (0m05.0s), 04/21 VUs, 13 complete and 0 interrupted iterations
+carga_login   [   8% ] 03/20 VUs  0m05.0s/1m00.0s
+leitura       [   8% ] 1 VUs      0m05.0s/1m0s
+
+running (0m06.0s), 04/21 VUs, 18 complete and 0 interrupted iterations
+carga_login   [  10% ] 03/20 VUs  0m06.0s/1m00.0s
+leitura       [  10% ] 1 VUs      0m06.0s/1m0s
+
+running (0m07.0s), 05/21 VUs, 21 complete and 0 interrupted iterations
+carga_login   [  12% ] 04/20 VUs  0m07.0s/1m00.0s
+leitura       [  12% ] 1 VUs      0m07.0s/1m0s
+
+running (0m08.0s), 06/21 VUs, 27 complete and 0 interrupted iterations
+carga_login   [  13% ] 05/20 VUs  0m08.0s/1m00.0s
+leitura       [  13% ] 1 VUs      0m08.0s/1m0s
+
+running (0m09.0s), 06/21 VUs, 34 complete and 0 interrupted iterations
+carga_login   [  15% ] 05/20 VUs  0m09.0s/1m00.0s
+leitura       [  15% ] 1 VUs      0m09.0s/1m0s
+
+running (0m10.0s), 07/21 VUs, 40 complete and 0 interrupted iterations
+carga_login   [  17% ] 06/20 VUs  0m10.0s/1m00.0s
+leitura       [  17% ] 1 VUs      0m10.0s/1m0s
+
+running (0m11.0s), 08/21 VUs, 48 complete and 0 interrupted iterations
+carga_login   [  18% ] 07/20 VUs  0m11.0s/1m00.0s
+leitura       [  18% ] 1 VUs      0m11.0s/1m0s
+
+running (0m12.0s), 08/21 VUs, 56 complete and 0 interrupted iterations
+carga_login   [  20% ] 07/20 VUs  0m12.0s/1m00.0s
+leitura       [  20% ] 1 VUs      0m12.0s/1m0s
+
+running (0m13.0s), 09/21 VUs, 64 complete and 0 interrupted iterations
+carga_login   [  22% ] 08/20 VUs  0m13.0s/1m00.0s
+leitura       [  22% ] 1 VUs      0m13.0s/1m0s
+
+running (0m14.0s), 10/21 VUs, 73 complete and 0 interrupted iterations
+carga_login   [  23% ] 09/20 VUs  0m14.0s/1m00.0s
+leitura       [  23% ] 1 VUs      0m14.0s/1m0s
+
+running (0m15.0s), 10/21 VUs, 84 complete and 0 interrupted iterations
+carga_login   [  25% ] 09/20 VUs  0m15.0s/1m00.0s
+leitura       [  25% ] 1 VUs      0m15.0s/1m0s
+
+running (0m16.0s), 11/21 VUs, 94 complete and 0 interrupted iterations
+carga_login   [  27% ] 10/20 VUs  0m16.0s/1m00.0s
+leitura       [  27% ] 1 VUs      0m16.0s/1m0s
+
+running (0m17.0s), 11/21 VUs, 104 complete and 0 interrupted iterations
+carga_login   [  28% ] 10/20 VUs  0m17.0s/1m00.0s
+leitura       [  28% ] 1 VUs      0m17.0s/1m0s
+
+running (0m18.0s), 11/21 VUs, 115 complete and 0 interrupted iterations
+carga_login   [  30% ] 10/20 VUs  0m18.0s/1m00.0s
+leitura       [  30% ] 1 VUs      0m18.0s/1m0s
+
+running (0m19.0s), 12/21 VUs, 126 complete and 0 interrupted iterations
+carga_login   [  32% ] 11/20 VUs  0m19.0s/1m00.0s
+leitura       [  32% ] 1 VUs      0m19.0s/1m0s
+
+running (0m20.0s), 12/21 VUs, 138 complete and 0 interrupted iterations
+carga_login   [  33% ] 11/20 VUs  0m20.0s/1m00.0s
+leitura       [  33% ] 1 VUs      0m20.0s/1m0s
+
+running (0m21.0s), 12/21 VUs, 150 complete and 0 interrupted iterations
+carga_login   [  35% ] 11/20 VUs  0m21.0s/1m00.0s
+leitura       [  35% ] 1 VUs      0m21.0s/1m0s
+
+running (0m22.0s), 13/21 VUs, 161 complete and 0 interrupted iterations
+carga_login   [  37% ] 12/20 VUs  0m22.0s/1m00.0s
+leitura       [  37% ] 1 VUs      0m22.0s/1m0s
+
+running (0m23.0s), 13/21 VUs, 174 complete and 0 interrupted iterations
+carga_login   [  38% ] 12/20 VUs  0m23.0s/1m00.0s
+leitura       [  38% ] 1 VUs      0m23.0s/1m0s
+
+running (0m24.0s), 13/21 VUs, 186 complete and 0 interrupted iterations
+carga_login   [  40% ] 12/20 VUs  0m24.0s/1m00.0s
+leitura       [  40% ] 1 VUs      0m24.0s/1m0s
+
+running (0m25.0s), 14/21 VUs, 200 complete and 0 interrupted iterations
+carga_login   [  42% ] 13/20 VUs  0m25.0s/1m00.0s
+leitura       [  42% ] 1 VUs      0m25.0s/1m0s
+
+running (0m26.0s), 14/21 VUs, 211 complete and 0 interrupted iterations
+carga_login   [  43% ] 13/20 VUs  0m26.0s/1m00.0s
+leitura       [  43% ] 1 VUs      0m26.0s/1m0s
+
+running (0m27.0s), 14/21 VUs, 224 complete and 0 interrupted iterations
+carga_login   [  45% ] 13/20 VUs  0m27.0s/1m00.0s
+leitura       [  45% ] 1 VUs      0m27.0s/1m0s
+
+running (0m28.0s), 15/21 VUs, 235 complete and 0 interrupted iterations
+carga_login   [  47% ] 14/20 VUs  0m28.0s/1m00.0s
+leitura       [  47% ] 1 VUs      0m28.0s/1m0s
+
+running (0m29.0s), 15/21 VUs, 244 complete and 0 interrupted iterations
+carga_login   [  48% ] 14/20 VUs  0m29.0s/1m00.0s
+leitura       [  48% ] 1 VUs      0m29.0s/1m0s
+
+running (0m30.0s), 15/21 VUs, 258 complete and 0 interrupted iterations
+carga_login   [  50% ] 14/20 VUs  0m30.0s/1m00.0s
+leitura       [  50% ] 1 VUs      0m30.0s/1m0s
+
+running (0m31.0s), 16/21 VUs, 270 complete and 0 interrupted iterations
+carga_login   [  52% ] 15/20 VUs  0m31.0s/1m00.0s
+leitura       [  52% ] 1 VUs      0m31.0s/1m0s
+
+running (0m32.0s), 16/21 VUs, 281 complete and 0 interrupted iterations
+carga_login   [  53% ] 15/20 VUs  0m32.0s/1m00.0s
+leitura       [  53% ] 1 VUs      0m32.0s/1m0s
+
+running (0m33.0s), 16/21 VUs, 294 complete and 0 interrupted iterations
+carga_login   [  55% ] 15/20 VUs  0m33.0s/1m00.0s
+leitura       [  55% ] 1 VUs      0m33.0s/1m0s
+
+running (0m34.0s), 17/21 VUs, 306 complete and 0 interrupted iterations
+carga_login   [  57% ] 16/20 VUs  0m34.0s/1m00.0s
+leitura       [  57% ] 1 VUs      0m34.0s/1m0s
+
+running (0m35.0s), 17/21 VUs, 316 complete and 0 interrupted iterations
+carga_login   [  58% ] 16/20 VUs  0m35.0s/1m00.0s
+leitura       [  58% ] 1 VUs      0m35.0s/1m0s
+
+running (0m36.0s), 17/21 VUs, 326 complete and 0 interrupted iterations
+carga_login   [  60% ] 16/20 VUs  0m36.0s/1m00.0s
+leitura       [  60% ] 1 VUs      0m36.0s/1m0s
+
+running (0m37.0s), 18/21 VUs, 337 complete and 0 interrupted iterations
+carga_login   [  62% ] 17/20 VUs  0m37.0s/1m00.0s
+leitura       [  62% ] 1 VUs      0m37.0s/1m0s
+
+running (0m38.0s), 18/21 VUs, 348 complete and 0 interrupted iterations
+carga_login   [  63% ] 17/20 VUs  0m38.0s/1m00.0s
+leitura       [  63% ] 1 VUs      0m38.0s/1m0s
+
+running (0m39.0s), 18/21 VUs, 360 complete and 0 interrupted iterations
+carga_login   [  65% ] 17/20 VUs  0m39.0s/1m00.0s
+leitura       [  65% ] 1 VUs      0m39.0s/1m0s
+
+running (0m40.0s), 19/21 VUs, 371 complete and 0 interrupted iterations
+carga_login   [  67% ] 18/20 VUs  0m40.0s/1m00.0s
+leitura       [  67% ] 1 VUs      0m40.0s/1m0s
+
+running (0m41.0s), 19/21 VUs, 386 complete and 0 interrupted iterations
+carga_login   [  68% ] 18/20 VUs  0m41.0s/1m00.0s
+leitura       [  68% ] 1 VUs      0m41.0s/1m0s
+
+running (0m42.0s), 19/21 VUs, 395 complete and 0 interrupted iterations
+carga_login   [  70% ] 18/20 VUs  0m42.0s/1m00.0s
+leitura       [  70% ] 1 VUs      0m42.0s/1m0s
+
+running (0m43.0s), 20/21 VUs, 405 complete and 0 interrupted iterations
+carga_login   [  72% ] 19/20 VUs  0m43.0s/1m00.0s
+leitura       [  72% ] 1 VUs      0m43.0s/1m0s
+
+running (0m44.0s), 20/21 VUs, 420 complete and 0 interrupted iterations
+carga_login   [  73% ] 19/20 VUs  0m44.0s/1m00.0s
+leitura       [  73% ] 1 VUs      0m44.0s/1m0s
+
+running (0m45.0s), 20/21 VUs, 430 complete and 0 interrupted iterations
+carga_login   [  75% ] 19/20 VUs  0m45.0s/1m00.0s
+leitura       [  75% ] 1 VUs      0m45.0s/1m0s
+
+running (0m46.0s), 21/21 VUs, 441 complete and 0 interrupted iterations
+carga_login   [  77% ] 20/20 VUs  0m46.0s/1m00.0s
+leitura       [  77% ] 1 VUs      0m46.0s/1m0s
+
+running (0m47.0s), 20/21 VUs, 457 complete and 0 interrupted iterations
+carga_login   [  78% ] 19/20 VUs  0m47.0s/1m00.0s
+leitura       [  78% ] 1 VUs      0m47.0s/1m0s
+
+running (0m48.0s), 18/21 VUs, 468 complete and 0 interrupted iterations
+carga_login   [  80% ] 17/20 VUs  0m48.0s/1m00.0s
+leitura       [  80% ] 1 VUs      0m48.0s/1m0s
+
+running (0m49.0s), 18/21 VUs, 480 complete and 0 interrupted iterations
+carga_login   [  82% ] 17/20 VUs  0m49.0s/1m00.0s
+leitura       [  82% ] 1 VUs      0m49.0s/1m0s
+
+running (0m50.0s), 16/21 VUs, 491 complete and 0 interrupted iterations
+carga_login   [  83% ] 15/20 VUs  0m50.0s/1m00.0s
+leitura       [  83% ] 1 VUs      0m50.0s/1m0s
+
+running (0m51.0s), 16/21 VUs, 501 complete and 0 interrupted iterations
+carga_login   [  85% ] 15/20 VUs  0m51.0s/1m00.0s
+leitura       [  85% ] 1 VUs      0m51.0s/1m0s
+
+running (0m52.0s), 13/21 VUs, 514 complete and 0 interrupted iterations
+carga_login   [  87% ] 12/20 VUs  0m52.0s/1m00.0s
+leitura       [  87% ] 1 VUs      0m52.0s/1m0s
+
+running (0m53.0s), 12/21 VUs, 528 complete and 0 interrupted iterations
+carga_login   [  88% ] 11/20 VUs  0m53.0s/1m00.0s
+leitura       [  88% ] 1 VUs      0m53.0s/1m0s
+
+running (0m54.0s), 10/21 VUs, 539 complete and 0 interrupted iterations
+carga_login   [  90% ] 09/20 VUs  0m54.0s/1m00.0s
+leitura       [  90% ] 1 VUs      0m54.0s/1m0s
+
+running (0m55.0s), 09/21 VUs, 549 complete and 0 interrupted iterations
+carga_login   [  92% ] 08/20 VUs  0m55.0s/1m00.0s
+leitura       [  92% ] 1 VUs      0m55.0s/1m0s
+
+running (0m56.0s), 08/21 VUs, 555 complete and 0 interrupted iterations
+carga_login   [  93% ] 07/20 VUs  0m56.0s/1m00.0s
+leitura       [  93% ] 1 VUs      0m56.0s/1m0s
+
+running (0m57.0s), 06/21 VUs, 564 complete and 0 interrupted iterations
+carga_login   [  95% ] 05/20 VUs  0m57.0s/1m00.0s
+leitura       [  95% ] 1 VUs      0m57.0s/1m0s
+
+running (0m58.0s), 06/21 VUs, 569 complete and 0 interrupted iterations
+carga_login   [  97% ] 05/20 VUs  0m58.0s/1m00.0s
+leitura       [  97% ] 1 VUs      0m58.0s/1m0s
+
+running (0m59.0s), 04/21 VUs, 575 complete and 0 interrupted iterations
+carga_login   [  98% ] 03/20 VUs  0m59.0s/1m00.0s
+leitura       [  98% ] 1 VUs      0m59.0s/1m0s
+
+running (1m00.0s), 02/21 VUs, 580 complete and 0 interrupted iterations
+carga_login   [ 100% ] 01/20 VUs  1m00.0s/1m00.0s
+leitura       [ 100% ] 1 VUs      1m00.0s/1m0s
+
+
+  █ THRESHOLDS 
+
+    checks
+    ✓ 'rate>0.99' rate=100.00%
+
+    http_req_duration{name:login}
+    ✗ 'p(95)<800' p(95)=803.92ms
+
+    http_req_duration{name:produtos}
+    ✗ 'p(95)<300' p(95)=430.97ms
+
+    http_req_failed
+    ✓ 'rate<0.01' rate=0.00%
+
+
+  █ TOTAL RESULTS 
+
+    checks_total.......: 1562    25.805057/s
+    checks_succeeded...: 100.00% 1562 out of 1562
+    checks_failed......: 0.00%   0 out of 1562
+
+    ✓ produtos: status 200
+    ✓ login: status 200
+    ✓ login: devolve token
+    ✓ login: e-mail correto
+
+    HTTP
+    http_req_duration..............: avg=339.82ms min=2.15ms   med=262.25ms max=1.19s    p(90)=732.47ms p(95)=786.23ms
+      { expected_response:true }...: avg=339.82ms min=2.15ms   med=262.25ms max=1.19s    p(90)=732.47ms p(95)=786.23ms
+      { name:login }...............: avg=375.16ms min=89ms     med=334.1ms  max=1.19s    p(90)=737.03ms p(95)=803.92ms
+      { name:produtos }............: avg=151.62ms min=2.15ms   med=92.4ms   max=825.54ms p(90)=378.76ms p(95)=430.97ms
+    http_req_failed................: 0.00%  0 out of 582
+    http_reqs......................: 582    9.614944/s
+
+    EXECUTION
+    iteration_duration.............: avg=1.26s    min=503.03ms med=1.22s    max=2.19s    p(90)=1.73s    p(95)=1.78s   
+    iterations.....................: 582    9.614944/s
+    vus............................: 2      min=1        max=21
+    vus_max........................: 21     min=21       max=21
+
+    NETWORK
+    data_received..................: 335 kB 5.5 kB/s
+    data_sent......................: 100 kB 1.7 kB/s
+
+
+
+
+running (1m00.5s), 00/21 VUs, 582 complete and 0 interrupted iterations
+carga_login ✓ [ 100% ] 00/20 VUs  1m0s
+leitura     ✓ [ 100% ] 1 VUs      1m0s
+time="2026-11-27T13:24:26Z" level=error msg="thresholds on metrics 'http_req_duration{name:login}, http_req_duration{name:produtos}' have been crossed"
