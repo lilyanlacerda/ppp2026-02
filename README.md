@@ -147,4 +147,4 @@ A aplicação **Loja PPP** foi criada por **Julio de Lima** para estudo e práti
 
 ## 📫 Contato
 
-**Lilyan Lacerda** · [GitHub](https://github.com/lilyanlacerda) · LinkedIn: _adicione aqui o link do seu perfil_
+**Lilyan Lacerda** · [GitHub](https://github.com/lilyanlacerda) · [LinkedIn](https://www.linkedin.com/in/lilyanlacerda/)
