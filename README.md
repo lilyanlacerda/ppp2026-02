@@ -49,7 +49,19 @@ As regras de negócio que mais impactam o cliente, e por isso receberam mais ate
 | 5 | [Automação Web — Cypress](docs/qa/05-automacao-web-cypress.md) | Casos E2E automatizados (`cypress/e2e/`) | ✅ Concluído |
 | 6 | [Automação API — JavaScript](docs/qa/06-automacao-api.md) | Casos de API automatizados (`test/api/`) | ✅ Concluído |
 | 7 | [Performance — k6](docs/qa/07-performance-k6.md) | Cenários de smoke, carga e jornada de compra (`performance/`) | ✅ Concluído |
-| 8 | [Relatório de Conclusão](docs/qa/08-relatorio-de-conclusao.md) | Resultados, métricas e risco residual | 🚧 Em andamento |
+| 8 | [Relatório de Conclusão](docs/qa/08-relatorio-de-conclusao.md) | Resultados, métricas e risco residual | ✅ Concluído |
+
+## 📈 Resultado do ciclo
+
+| | |
+|---|---|
+| **Recomendação** | 🔴 Não liberar a versão 1.0.0 até a correção do BUG-001 (crítico) |
+| **Casos projetados** | 112 (46 Web + 66 API), com 100% dos requisitos cobertos |
+| **Execução formal** | 15 casos (13%): 6 aprovados e 9 reprovados. Os casos de risco Alto pendentes estão no plano do próximo ciclo |
+| **Automação** | 3 testes Web, 3 de API + 1 de bug conhecido, 3 cenários de performance, todos estáveis |
+| **Defeitos** | 8 (1 crítico, 4 médios, 3 baixos) + 4 sugestões de melhoria |
+
+Avaliação dos critérios, métricas, risco residual e lições aprendidas no [Relatório de Conclusão](docs/qa/08-relatorio-de-conclusao.md).
 
 ## 🐞 Destaques: bugs encontrados
 
@@ -148,4 +160,4 @@ A aplicação **Loja PPP** foi criada por **Julio de Lima** para estudo e práti
 
 ## 📫 Contato
 
-**Lilyan Lacerda** · [GitHub](https://github.com/lilyanlacerda) · [LinkedIn](https://www.linkedin.com/in/lilyanlacerda/)
+**Lilyan Lacerda** · [GitHub](https://github.com/lilyanlacerda) · LinkedIn: _adicione aqui o link do seu perfil_
