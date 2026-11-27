@@ -1,0 +1,19 @@
+Evidência BUG-006 — Loja PPP 1.0.0 (commit f134da6)
+Executado em 2026-11-26T19:54:21.021Z · Node v22.23.5 · http://localhost:3030
+
+> GET /api/cart
+> Authorization: Bearer <token>
+< HTTP 200
+< {"items":[],"totalItems":0,"subtotal":0}
+
+> GET /api/checkout/summary?paymentMethod=cash
+> Authorization: Bearer <token>
+< HTTP 200
+< {"items":[],"paymentMethod":"cash","isVip":false,"subtotal":0,"discount":0,"shipping":20,"total":20}
+
+> POST /api/checkout
+> Authorization: Bearer <token>
+> {"paymentMethod":"cash"}
+< HTTP 422
+< {"error":"O carrinho está vazio."}
+

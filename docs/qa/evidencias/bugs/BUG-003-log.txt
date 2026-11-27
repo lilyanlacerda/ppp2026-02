@@ -1,0 +1,8 @@
+Evidência BUG-003 — Loja PPP 1.0.0 (commit f134da6)
+Executado em 2026-11-26T19:54:21.021Z · Node v22.23.5 · http://localhost:3030
+
+> POST /api/auth/login
+> {"email":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa... (200027 bytes)
+< HTTP 500
+< {"error":"Erro interno do servidor."}
+

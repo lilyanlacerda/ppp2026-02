@@ -1,0 +1,13 @@
+Evidência BUG-005 — Loja PPP 1.0.0 (commit f134da6)
+Executado em 2026-11-26T19:54:21.021Z · Node v22.23.5 · http://localhost:3030
+
+> POST /api/auth/register
+> {"name":"QA Espaços","email":"qa.bug+spaces1795722861570@email.com","password":"      "}
+< HTTP 201
+< {"user":{"id":"6b088e6d4e7da833512e7daa","name":"QA Espaços","email":"qa.bug+spaces1795722861570@email.com","totalSpent":0,"isVip":false}}
+
+> POST /api/auth/login
+> {"email":"qa.bug+spaces1795722861570@email.com","password":"      "}
+< HTTP 200
+< {"token":"<jwt omitido>", ...}
+

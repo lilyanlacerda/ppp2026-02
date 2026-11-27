@@ -1,0 +1,11 @@
+
+VersionError: No matching document found for id "6b088e6d4e7da833512e7da2" version 1 modifiedPaths "items"
+    at generateVersionError (/home/user/ppp2026-02/node_modules/mongoose/lib/model.js:599:10)
+    at model.save (/home/user/ppp2026-02/node_modules/mongoose/lib/model.js:661:30)
+    at Object.checkout (/home/user/ppp2026-02/src/services/checkoutService.js:90:14)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async /home/user/ppp2026-02/src/routes/checkout.js:14:24 {
+  version: 1,
+  modifiedPaths: [ 'items' ]
+}
+VersionError: No matching document found for id "6b088e6d4e7da833512e7da2" version 1 modifiedPaths "items"

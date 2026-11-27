@@ -1,0 +1,52 @@
+Evidência BUG-004 — Loja PPP 1.0.0 (commit f134da6)
+Executado em 2026-11-26T19:54:21.021Z · Node v22.23.5 · http://localhost:3030
+
+> DELETE /api/cart
+> Authorization: Bearer <token>
+< HTTP 200
+< {"items":[],"totalItems":0,"subtotal":0}
+
+> POST /api/cart/items
+> Authorization: Bearer <token>
+> {"productId":"6b088e524e7da833512e7d9b","quantity":true}
+< HTTP 201
+< {"items":[{"productId":"6b088e524e7da833512e7d9b","name":"Teclado Mecânico","unitPrice":250,"quantity":1,"lineTotal":250,"stock":5}],"totalItems":1,"subtotal":250}
+
+> DELETE /api/cart
+> Authorization: Bearer <token>
+< HTTP 200
+< {"items":[],"totalItems":0,"subtotal":0}
+
+> POST /api/cart/items
+> Authorization: Bearer <token>
+> {"productId":"6b088e524e7da833512e7d9b","quantity":"1e1"}
+< HTTP 422
+< {"error":"Estoque insuficiente para \"Teclado Mecânico\". Disponível: 5."}
+
+> DELETE /api/cart
+> Authorization: Bearer <token>
+< HTTP 200
+< {"items":[],"totalItems":0,"subtotal":0}
+
+> POST /api/cart/items
+> Authorization: Bearer <token>
+> {"productId":"6b088e524e7da833512e7d9b","quantity":"2"}
+< HTTP 201
+< {"items":[{"productId":"6b088e524e7da833512e7d9b","name":"Teclado Mecânico","unitPrice":250,"quantity":2,"lineTotal":500,"stock":5}],"totalItems":2,"subtotal":500}
+
+> DELETE /api/cart
+> Authorization: Bearer <token>
+< HTTP 200
+< {"items":[],"totalItems":0,"subtotal":0}
+
+> POST /api/cart/items
+> Authorization: Bearer <token>
+> {"productId":"6b088e524e7da833512e7d9b","quantity":null}
+< HTTP 201
+< {"items":[{"productId":"6b088e524e7da833512e7d9b","name":"Teclado Mecânico","unitPrice":250,"quantity":1,"lineTotal":250,"stock":5}],"totalItems":1,"subtotal":250}
+
+> DELETE /api/cart
+> Authorization: Bearer <token>
+< HTTP 200
+< {"items":[],"totalItems":0,"subtotal":0}
+

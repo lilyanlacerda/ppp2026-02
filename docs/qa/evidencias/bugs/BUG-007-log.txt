@@ -1,0 +1,13 @@
+Evidência BUG-007 — Loja PPP 1.0.0 (commit f134da6)
+Executado em 2026-11-26T19:54:21.021Z · Node v22.23.5 · http://localhost:3030
+
+> GET /api/users/me
+> Authorization: Bearer <token>
+< HTTP 200
+< {"user":{"id":"6b088e6d4e7da833512e7dad","name":"QA Bug","email":"qa.bug+bearer1795722861858@email.com","totalSpent":0,"isVip":false}}
+
+> GET /api/users/me
+> Authorization: bearer <token>
+< HTTP 401
+< {"error":"Token de autenticação não informado."}
+

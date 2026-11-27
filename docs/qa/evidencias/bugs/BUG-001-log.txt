@@ -1,0 +1,32 @@
+Evidência BUG-001 — Loja PPP 1.0.0 (commit f134da6)
+Executado em 2026-11-26T19:54:21.021Z · Node v22.23.5 · http://localhost:3030
+
+# Pré-condição: cliente novo, aplicação recém-iniciada. Estoque inicial do Teclado: 10
+> POST /api/cart/items
+> Authorization: Bearer <token>
+> {"productId":"6b088e524e7da833512e7d9b","quantity":1}
+< HTTP 201
+< {"items":[{"productId":"6b088e524e7da833512e7d9b","name":"Teclado Mecânico","unitPrice":250,"quantity":1,"lineTotal":250,"stock":10}],"totalItems":1,"subtotal":250}
+
+# 5 requisições POST /api/checkout disparadas em paralelo (Promise.all):
+  #1 -> HTTP 500 {"error":"Erro interno do servidor."}
+  #2 -> HTTP 201 (order 6b088e6d4e7da833512e7da3, total 245)
+  #3 -> HTTP 500 {"error":"Erro interno do servidor."}
+  #4 -> HTTP 500 {"error":"Erro interno do servidor."}
+  #5 -> HTTP 500 {"error":"Erro interno do servidor."}
+
+> GET /api/products/6b088e524e7da833512e7d9b
+< HTTP 200
+< {"product":{"id":"6b088e524e7da833512e7d9b","name":"Teclado Mecânico","description":"Teclado mecânico ABNT2 com switches blue e iluminação RGB.","price":250,"stock":5,"imageUrl":""}}
+
+> GET /api/users/me
+> Authorization: Bearer <token>
+< HTTP 200
+< {"user":{"id":"6b088e6d4e7da833512e7da1","name":"QA Bug","email":"qa.bug+conc1795722861065@email.com","totalSpent":245,"isVip":false}}
+
+# Consulta direta ao MongoDB: pedidos gravados para o cliente = 5
+  6b088e6d4e7da833512e7da3 total=245 createdAt=2026-11-26T19:54:21.290Z
+  6b088e6d4e7da833512e7da4 total=245 createdAt=2026-11-26T19:54:21.295Z
+  6b088e6d4e7da833512e7da5 total=245 createdAt=2026-11-26T19:54:21.296Z
+  6b088e6d4e7da833512e7da6 total=245 createdAt=2026-11-26T19:54:21.308Z
+  6b088e6d4e7da833512e7da7 total=245 createdAt=2026-11-26T19:54:21.309Z
