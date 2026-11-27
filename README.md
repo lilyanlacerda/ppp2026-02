@@ -47,7 +47,7 @@ As regras de negócio que mais impactam o cliente, e por isso receberam mais ate
 | 3 | [Casos de Teste API](docs/qa/03-casos-de-teste-api.md) | Especificação dos casos de teste da API REST | ✅ Concluído |
 | 4 | [Report de Bugs](docs/qa/04-report-de-bugs.md) | Defeitos encontrados, com evidências e Issues no GitHub | ✅ Concluído |
 | 5 | [Automação Web — Cypress](docs/qa/05-automacao-web-cypress.md) | Casos E2E automatizados (`cypress/e2e/`) | ✅ Concluído |
-| 6 | [Automação API — JavaScript](docs/qa/06-automacao-api.md) | Casos de API automatizados (`test/api/`) | 🚧 Em andamento |
+| 6 | [Automação API — JavaScript](docs/qa/06-automacao-api.md) | Casos de API automatizados (`test/api/`) | ✅ Concluído |
 | 7 | [Performance — k6](docs/qa/07-performance-k6.md) | Cenários de smoke, carga e jornada de compra (`performance/`) | 🚧 Em andamento |
 | 8 | [Relatório de Conclusão](docs/qa/08-relatorio-de-conclusao.md) | Resultados, métricas e risco residual | 🚧 Em andamento |
 
@@ -95,7 +95,7 @@ Exemplo, a tabela de decisão usada para validar o total da compra (1 Teclado de
 
 ## ▶️ Como executar
 
-**Pré-requisitos:** Node.js 18+ e npm. Para os testes Web, o Google Chrome. Para performance, o [k6](https://grafana.com/docs/k6/latest/set-up/install-k6/) instalado.
+**Pré-requisitos:** Node.js 20.19+ (recomendado: 22 LTS) e npm. Para os testes Web, o Google Chrome. Para performance, o [k6](https://grafana.com/docs/k6/latest/set-up/install-k6/) instalado.
 
 ```bash
 git clone https://github.com/lilyanlacerda/ppp2026-02.git
@@ -109,7 +109,7 @@ Suba a aplicação (fica em http://localhost:3030):
 npm start
 ```
 
-Em outro terminal, rode as suítes (o `npm run test:web` sobe a aplicação sozinho, se ela não estiver rodando):
+Rode as suítes (`test:web` e `test:api` sobem a aplicação sozinhos):
 
 ```bash
 npm run test:api
@@ -123,7 +123,7 @@ npm run test:web
 npm run test:perf
 ```
 
-> ⚠️ O banco é em memória: reiniciar a aplicação restaura os dados de teste. A suíte Web já está disponível; as de API e performance entram com os entregáveis 6 e 7.
+> ⚠️ O banco é em memória: reiniciar a aplicação restaura os dados de teste. As suítes Web e API já estão disponíveis; a de performance entra com o entregável 7. Para reproduzir o BUG-001 automaticamente: `npm run test:api:bugs`.
 
 ## 📁 Estrutura do repositório
 

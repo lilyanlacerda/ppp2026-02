@@ -116,7 +116,7 @@ Válidas para **todos** os casos, salvo indicação contrária:
 
 ### 3.1 Resumo
 
-Legenda: 🤖 = selecionado para automação em JavaScript ([doc 06](06-automacao-api.md)). Status: ⏳ Não executado (os resultados são registrados no [Report de Bugs](04-report-de-bugs.md) e no [Relatório de Conclusão](08-relatorio-de-conclusao.md)).
+Legenda: 🤖 = selecionado para automação em JavaScript ([doc 06](06-automacao-api.md)). Status: ⏳ Não executado · ✅ Aprovado · ❌ Reprovado, com o bug correspondente (os resultados são registrados no [Report de Bugs](04-report-de-bugs.md) e no [Relatório de Conclusão](08-relatorio-de-conclusao.md)).
 
 | ID | Título | Condição | Prioridade | Execução |
 |---|---|---|---|---|
@@ -129,8 +129,8 @@ Legenda: 🤖 = selecionado para automação em JavaScript ([doc 06](06-automaca
 | CT-API-AUTH-07 | Recusar e-mails em formato inválido | TCOND-API-05 | Média | ⏳ |
 | CT-API-AUTH-08 | Recusar cadastro sem corpo | TCOND-API-06 | Baixa | ⏳ |
 | CT-API-AUTH-09 | Recusar cadastro com tipos de dado errados | TCOND-API-06 | Baixa | ⏳ |
-| CT-API-AUTH-10 | Recusar senha formada só por espaços | TCOND-API-06 | Baixa | ⏳ |
-| CT-API-AUTH-11 🤖 | Fazer login com credenciais válidas | TCOND-API-07 | Alta | ⏳ |
+| CT-API-AUTH-10 | Recusar senha formada só por espaços | TCOND-API-06 | Baixa | ❌ [BUG-005](04-report-de-bugs.md) |
+| CT-API-AUTH-11 🤖 | Fazer login com credenciais válidas | TCOND-API-07 | Alta | ✅ [Automação](06-automacao-api.md) |
 | CT-API-AUTH-12 | Recusar login com senha incorreta | TCOND-API-08 | Alta | ⏳ |
 | CT-API-AUTH-13 | Recusar login de e-mail não cadastrado com a mesma mensagem | TCOND-API-08 | Média | ⏳ |
 | CT-API-AUTH-14 | Recusar login sem e-mail ou sem senha | TCOND-API-09 | Média | ⏳ |
@@ -141,10 +141,10 @@ Legenda: 🤖 = selecionado para automação em JavaScript ([doc 06](06-automaca
 | CT-API-SEC-03 | Recusar token assinado com outro segredo | TCOND-API-13 | Alta | ⏳ |
 | CT-API-SEC-04 | Recusar token expirado | TCOND-API-13 | Média | ⏳ |
 | CT-API-SEC-05 | Recusar esquema de autenticação diferente de Bearer | TCOND-API-14 | Média | ⏳ |
-| CT-API-SEC-06 | Aceitar o esquema `bearer` em minúsculas | TCOND-API-14 | Baixa | ⏳ |
+| CT-API-SEC-06 | Aceitar o esquema `bearer` em minúsculas | TCOND-API-14 | Baixa | ❌ [BUG-007](04-report-de-bugs.md) |
 | CT-API-SEC-07 | Isolar o carrinho de cada cliente | TCOND-API-15 | Alta | ⏳ |
 | CT-API-SEC-08 | Não expor senha nem hash nas respostas | TCOND-API-16 | Média | ⏳ |
-| CT-API-SEC-09 | Recusar corpo de requisição grande demais com 413 | TCOND-API-17 | Média | ⏳ |
+| CT-API-SEC-09 | Recusar corpo de requisição grande demais com 413 | TCOND-API-17 | Média | ❌ [BUG-003](04-report-de-bugs.md) |
 | CT-API-PRD-01 | Listar produtos | TCOND-API-18 | Média | ⏳ |
 | CT-API-PRD-02 | Detalhar produto existente | TCOND-API-18 | Média | ⏳ |
 | CT-API-PRD-03 | Recusar id de produto em formato inválido | TCOND-API-19 | Média | ⏳ |
@@ -152,11 +152,11 @@ Legenda: 🤖 = selecionado para automação em JavaScript ([doc 06](06-automaca
 | CT-API-CAR-01 | Consultar carrinho vazio de cliente novo | TCOND-API-24 | Média | ⏳ |
 | CT-API-CAR-02 | Adicionar produto ao carrinho | TCOND-API-20 | Alta | ⏳ |
 | CT-API-CAR-03 | Acumular a quantidade ao adicionar o mesmo produto | TCOND-API-20 | Alta | ⏳ |
-| CT-API-CAR-04 🤖 | Recusar adição que faz o carrinho passar do estoque | TCOND-API-21 | Alta | ⏳ |
+| CT-API-CAR-04 🤖 | Recusar adição que faz o carrinho passar do estoque | TCOND-API-21 | Alta | ✅ [Automação](06-automacao-api.md) |
 | CT-API-CAR-05 | Aceitar quantidade igual ao estoque | TCOND-API-21 | Alta | ⏳ |
 | CT-API-CAR-06 | Recusar produto sem estoque | TCOND-API-22 | Alta | ⏳ |
 | CT-API-CAR-07 | Recusar quantidades inválidas | TCOND-API-23 | Média | ⏳ |
-| CT-API-CAR-08 | Recusar quantidade que não é número inteiro (booleano e texto) | TCOND-API-23 | Baixa | ⏳ |
+| CT-API-CAR-08 | Recusar quantidade que não é número inteiro (booleano e texto) | TCOND-API-23 | Baixa | ❌ [BUG-004](04-report-de-bugs.md) |
 | CT-API-CAR-09 | Usar quantidade 1 quando ela não é informada | TCOND-API-23 | Baixa | ⏳ |
 | CT-API-CAR-10 | Recusar productId inválido ou inexistente | TCOND-API-19 | Média | ⏳ |
 | CT-API-CAR-11 | Alterar a quantidade de um item | TCOND-API-24 | Média | ⏳ |
@@ -167,7 +167,7 @@ Legenda: 🤖 = selecionado para automação em JavaScript ([doc 06](06-automaca
 | CT-API-CAR-16 | Informar remoção de produto que não está no carrinho | TCOND-API-24 | Baixa | ⏳ |
 | CT-API-CAR-17 | Esvaziar o carrinho | TCOND-API-24 | Média | ⏳ |
 | CT-API-CHK-01 | Calcular prévia de não VIP pagando com cartão | TCOND-API-25 | Alta | ⏳ |
-| CT-API-CHK-02 🤖 | Finalizar compra de não VIP em dinheiro com desconto | TCOND-API-25, 29 | Alta | ⏳ |
+| CT-API-CHK-02 🤖 | Finalizar compra de não VIP em dinheiro com desconto | TCOND-API-25, 29 | Alta | ✅ [Automação](06-automacao-api.md) |
 | CT-API-CHK-03 | Calcular prévia de VIP pagando com cartão | TCOND-API-25 | Alta | ⏳ |
 | CT-API-CHK-04 | Calcular prévia de VIP pagando em dinheiro | TCOND-API-25 | Alta | ⏳ |
 | CT-API-CHK-05 | Não alterar o estado ao consultar a prévia | TCOND-API-26 | Média | ⏳ |
@@ -180,8 +180,8 @@ Legenda: 🤖 = selecionado para automação em JavaScript ([doc 06](06-automaca
 | CT-API-CHK-12 | Arredondar o desconto de produto com centavos | TCOND-API-31 | Média | ⏳ |
 | CT-API-CHK-13 | Calcular compra com vários itens | TCOND-API-31 | Média | ⏳ |
 | CT-API-CHK-14 | Recusar checkout quando o estoque acabou depois da adição | TCOND-API-32 | Alta | ⏳ |
-| CT-API-CHK-15 | Gerar um único pedido com checkouts simultâneos | TCOND-API-33 | Alta | ⏳ |
-| CT-API-CHK-16 | Não cobrar frete na prévia de carrinho vazio | TCOND-API-26 | Baixa | ⏳ |
+| CT-API-CHK-15 | Gerar um único pedido com checkouts simultâneos | TCOND-API-33 | Alta | ❌ [BUG-001](04-report-de-bugs.md) |
+| CT-API-CHK-16 | Não cobrar frete na prévia de carrinho vazio | TCOND-API-26 | Baixa | ❌ [BUG-006](04-report-de-bugs.md) |
 | CT-API-GEN-01 | Verificar o health check | TCOND-API-34 | Baixa | ⏳ |
 | CT-API-GEN-02 | Responder rota inexistente com 404 em JSON | TCOND-API-34 | Baixa | ⏳ |
 | CT-API-GEN-03 | Recusar JSON malformado | TCOND-API-34 | Média | ⏳ |
@@ -1043,4 +1043,4 @@ Todos os **12 endpoints** e todos os **códigos de resposta documentados no Swag
 | CT-API-CAR-04 | Regra RN02 com valor-limite; risco RP04 (exposição 6) |
 | CT-API-CHK-02 | Fluxo de compra completo com a regra RN01 e os efeitos pós-compra; risco RP01 (exposição 6) |
 
-> Candidato extra recomendado: **CT-API-CHK-15** (concorrência), difícil de executar manualmente e ligado ao risco RP03.
+> **CT-API-CHK-15** (concorrência) também foi automatizado, na suíte separada de bugs conhecidos (`npm run test:api:bugs`): é difícil de executar à mão e ligado ao risco RP03. Detalhes no [doc 06](06-automacao-api.md).
