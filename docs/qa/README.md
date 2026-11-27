@@ -16,7 +16,7 @@
 | 04 | [Report de Bugs](04-report-de-bugs.md) | *Incident Report* | Quais defeitos foram encontrados, com evidências | ✅ Concluído |
 | 05 | [Automação Web — Cypress](05-automacao-web-cypress.md) | *Test Procedure Specification* + *Test Execution Log* | Quais casos Web foram automatizados e como executá-los | ✅ Concluído |
 | 06 | [Automação API — JavaScript](06-automacao-api.md) | *Test Procedure Specification* + *Test Execution Log* | Quais casos de API foram automatizados e como executá-los | ✅ Concluído |
-| 07 | [Performance — k6](07-performance-k6.md) | *Test Procedure Specification* + *Test Result* | Como a aplicação se comporta sob carga | 🚧 Em andamento |
+| 07 | [Performance — k6](07-performance-k6.md) | *Test Procedure Specification* + *Test Result* | Como a aplicação se comporta sob carga | ✅ Concluído |
 | 08 | [Relatório de Conclusão](08-relatorio-de-conclusao.md) | *Test Completion Report* | O que foi testado, resultados, métricas e risco residual | 🚧 Em andamento |
 
 **Por onde começar?**

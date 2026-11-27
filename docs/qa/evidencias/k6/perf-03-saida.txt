@@ -1,0 +1,321 @@
+
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+
+     execution: local
+        script: performance/perf-03-jornada-compra.js
+ web dashboard: http://127.0.0.1:5665
+        output: -
+
+     scenarios: (100.00%) 2 scenarios, 15 max VUs, 1m30s max duration (incl. graceful stop):
+              * navegacao: Up to 10 looping VUs for 1m0s over 3 stages (gracefulRampDown: 5s, exec: navegacao, gracefulStop: 30s)
+              * compra: 10 iterations shared among 5 VUs (maxDuration: 40s, exec: compra, startTime: 20s, gracefulStop: 30s)
+
+
+running (0m01.0s), 00/15 VUs, 0 complete and 0 interrupted iterations
+navegacao   [   2% ] 00/10 VUs  0m01.0s/1m00.0s
+compra    • [   0% ] waiting    19.0s
+
+running (0m02.0s), 01/15 VUs, 0 complete and 0 interrupted iterations
+navegacao   [   3% ] 01/10 VUs  0m02.0s/1m00.0s
+compra    • [   0% ] waiting    18.0s
+
+running (0m03.0s), 01/15 VUs, 1 complete and 0 interrupted iterations
+navegacao   [   5% ] 01/10 VUs  0m03.0s/1m00.0s
+compra    • [   0% ] waiting    17.0s
+
+running (0m04.0s), 02/15 VUs, 2 complete and 0 interrupted iterations
+navegacao   [   7% ] 02/10 VUs  0m04.0s/1m00.0s
+compra    • [   0% ] waiting    16.0s
+
+running (0m05.0s), 03/15 VUs, 4 complete and 0 interrupted iterations
+navegacao   [   8% ] 03/10 VUs  0m05.0s/1m00.0s
+compra    • [   0% ] waiting    15.0s
+
+running (0m06.0s), 03/15 VUs, 7 complete and 0 interrupted iterations
+navegacao   [  10% ] 03/10 VUs  0m06.0s/1m00.0s
+compra    • [   0% ] waiting    14.0s
+
+running (0m07.0s), 04/15 VUs, 10 complete and 0 interrupted iterations
+navegacao   [  12% ] 04/10 VUs  0m07.0s/1m00.0s
+compra    • [   0% ] waiting    13.0s
+
+running (0m08.0s), 05/15 VUs, 14 complete and 0 interrupted iterations
+navegacao   [  13% ] 05/10 VUs  0m08.0s/1m00.0s
+compra    • [   0% ] waiting    12.0s
+
+running (0m09.0s), 05/15 VUs, 19 complete and 0 interrupted iterations
+navegacao   [  15% ] 05/10 VUs  0m09.0s/1m00.0s
+compra    • [   0% ] waiting    11.0s
+
+running (0m10.0s), 06/15 VUs, 24 complete and 0 interrupted iterations
+navegacao   [  17% ] 06/10 VUs  0m10.0s/1m00.0s
+compra    • [   0% ] waiting    10.0s
+
+running (0m11.0s), 07/15 VUs, 30 complete and 0 interrupted iterations
+navegacao   [  18% ] 07/10 VUs  0m11.0s/1m00.0s
+compra    • [   0% ] waiting    09.0s
+
+running (0m12.0s), 07/15 VUs, 36 complete and 0 interrupted iterations
+navegacao   [  20% ] 07/10 VUs  0m12.0s/1m00.0s
+compra    • [   0% ] waiting    08.0s
+
+running (0m13.0s), 08/15 VUs, 43 complete and 0 interrupted iterations
+navegacao   [  22% ] 08/10 VUs  0m13.0s/1m00.0s
+compra    • [   0% ] waiting    07.0s
+
+running (0m14.0s), 09/15 VUs, 51 complete and 0 interrupted iterations
+navegacao   [  23% ] 09/10 VUs  0m14.0s/1m00.0s
+compra    • [   0% ] waiting    06.0s
+
+running (0m15.0s), 09/15 VUs, 59 complete and 0 interrupted iterations
+navegacao   [  25% ] 09/10 VUs  0m15.0s/1m00.0s
+compra    • [   0% ] waiting    05.0s
+
+running (0m16.0s), 10/15 VUs, 68 complete and 0 interrupted iterations
+navegacao   [  27% ] 10/10 VUs  0m16.0s/1m00.0s
+compra    • [   0% ] waiting    04.0s
+
+running (0m17.0s), 10/15 VUs, 78 complete and 0 interrupted iterations
+navegacao   [  28% ] 10/10 VUs  0m17.0s/1m00.0s
+compra    • [   0% ] waiting    03.0s
+
+running (0m18.0s), 10/15 VUs, 86 complete and 0 interrupted iterations
+navegacao   [  30% ] 10/10 VUs  0m18.0s/1m00.0s
+compra    • [   0% ] waiting    02.0s
+
+running (0m19.0s), 10/15 VUs, 96 complete and 0 interrupted iterations
+navegacao   [  32% ] 10/10 VUs  0m19.0s/1m00.0s
+compra    • [   0% ] waiting    01.0s
+
+running (0m20.0s), 10/15 VUs, 106 complete and 0 interrupted iterations
+navegacao   [  33% ] 10/10 VUs  0m20.0s/1m00.0s
+compra    • [   0% ] waiting    00.0s
+
+running (0m21.0s), 15/15 VUs, 116 complete and 0 interrupted iterations
+navegacao   [  35% ] 10/10 VUs  0m21.0s/1m00.0s
+compra      [   0% ] 5 VUs      01.0s/40s  00/10 shared iters
+
+running (0m22.0s), 15/15 VUs, 116 complete and 0 interrupted iterations
+navegacao   [  37% ] 10/10 VUs  0m22.0s/1m00.0s
+compra      [   0% ] 5 VUs      02.0s/40s  00/10 shared iters
+
+running (0m23.0s), 15/15 VUs, 131 complete and 0 interrupted iterations
+navegacao   [  38% ] 10/10 VUs  0m23.0s/1m00.0s
+compra      [  50% ] 5 VUs      03.0s/40s  05/10 shared iters
+
+running (0m24.0s), 15/15 VUs, 133 complete and 0 interrupted iterations
+navegacao   [  40% ] 10/10 VUs  0m24.0s/1m00.0s
+compra      [  50% ] 5 VUs      04.0s/40s  05/10 shared iters
+
+running (0m25.0s), 10/15 VUs, 148 complete and 0 interrupted iterations
+navegacao   [  42% ] 10/10 VUs  0m25.0s/1m00.0s
+compra    ✓ [ 100% ] 5 VUs      04.2s/40s  10/10 shared iters
+
+running (0m26.0s), 10/15 VUs, 158 complete and 0 interrupted iterations
+navegacao   [  43% ] 10/10 VUs  0m26.0s/1m00.0s
+compra    ✓ [ 100% ] 5 VUs      04.2s/40s  10/10 shared iters
+
+running (0m27.0s), 10/15 VUs, 168 complete and 0 interrupted iterations
+navegacao   [  45% ] 10/10 VUs  0m27.0s/1m00.0s
+compra    ✓ [ 100% ] 5 VUs      04.2s/40s  10/10 shared iters
+
+running (0m28.0s), 10/15 VUs, 178 complete and 0 interrupted iterations
+navegacao   [  47% ] 10/10 VUs  0m28.0s/1m00.0s
+compra    ✓ [ 100% ] 5 VUs      04.2s/40s  10/10 shared iters
+
+running (0m29.0s), 10/15 VUs, 188 complete and 0 interrupted iterations
+navegacao   [  48% ] 10/10 VUs  0m29.0s/1m00.0s
+compra    ✓ [ 100% ] 5 VUs      04.2s/40s  10/10 shared iters
+
+running (0m30.0s), 10/15 VUs, 197 complete and 0 interrupted iterations
+navegacao   [  50% ] 10/10 VUs  0m30.0s/1m00.0s
+compra    ✓ [ 100% ] 5 VUs      04.2s/40s  10/10 shared iters
+
+running (0m31.0s), 10/15 VUs, 207 complete and 0 interrupted iterations
+navegacao   [  52% ] 10/10 VUs  0m31.0s/1m00.0s
+compra    ✓ [ 100% ] 5 VUs      04.2s/40s  10/10 shared iters
+
+running (0m32.0s), 10/15 VUs, 217 complete and 0 interrupted iterations
+navegacao   [  53% ] 10/10 VUs  0m32.0s/1m00.0s
+compra    ✓ [ 100% ] 5 VUs      04.2s/40s  10/10 shared iters
+
+running (0m33.0s), 10/15 VUs, 227 complete and 0 interrupted iterations
+navegacao   [  55% ] 10/10 VUs  0m33.0s/1m00.0s
+compra    ✓ [ 100% ] 5 VUs      04.2s/40s  10/10 shared iters
+
+running (0m34.0s), 10/15 VUs, 237 complete and 0 interrupted iterations
+navegacao   [  57% ] 10/10 VUs  0m34.0s/1m00.0s
+compra    ✓ [ 100% ] 5 VUs      04.2s/40s  10/10 shared iters
+
+running (0m35.0s), 10/15 VUs, 247 complete and 0 interrupted iterations
+navegacao   [  58% ] 10/10 VUs  0m35.0s/1m00.0s
+compra    ✓ [ 100% ] 5 VUs      04.2s/40s  10/10 shared iters
+
+running (0m36.0s), 10/15 VUs, 257 complete and 0 interrupted iterations
+navegacao   [  60% ] 10/10 VUs  0m36.0s/1m00.0s
+compra    ✓ [ 100% ] 5 VUs      04.2s/40s  10/10 shared iters
+
+running (0m37.0s), 10/15 VUs, 266 complete and 0 interrupted iterations
+navegacao   [  62% ] 10/10 VUs  0m37.0s/1m00.0s
+compra    ✓ [ 100% ] 5 VUs      04.2s/40s  10/10 shared iters
+
+running (0m38.0s), 10/15 VUs, 276 complete and 0 interrupted iterations
+navegacao   [  63% ] 10/10 VUs  0m38.0s/1m00.0s
+compra    ✓ [ 100% ] 5 VUs      04.2s/40s  10/10 shared iters
+
+running (0m39.0s), 10/15 VUs, 286 complete and 0 interrupted iterations
+navegacao   [  65% ] 10/10 VUs  0m39.0s/1m00.0s
+compra    ✓ [ 100% ] 5 VUs      04.2s/40s  10/10 shared iters
+
+running (0m40.0s), 10/15 VUs, 296 complete and 0 interrupted iterations
+navegacao   [  67% ] 10/10 VUs  0m40.0s/1m00.0s
+compra    ✓ [ 100% ] 5 VUs      04.2s/40s  10/10 shared iters
+
+running (0m41.0s), 10/15 VUs, 306 complete and 0 interrupted iterations
+navegacao   [  68% ] 10/10 VUs  0m41.0s/1m00.0s
+compra    ✓ [ 100% ] 5 VUs      04.2s/40s  10/10 shared iters
+
+running (0m42.0s), 10/15 VUs, 316 complete and 0 interrupted iterations
+navegacao   [  70% ] 10/10 VUs  0m42.0s/1m00.0s
+compra    ✓ [ 100% ] 5 VUs      04.2s/40s  10/10 shared iters
+
+running (0m43.0s), 10/15 VUs, 326 complete and 0 interrupted iterations
+navegacao   [  72% ] 10/10 VUs  0m43.0s/1m00.0s
+compra    ✓ [ 100% ] 5 VUs      04.2s/40s  10/10 shared iters
+
+running (0m44.0s), 10/15 VUs, 336 complete and 0 interrupted iterations
+navegacao   [  73% ] 10/10 VUs  0m44.0s/1m00.0s
+compra    ✓ [ 100% ] 5 VUs      04.2s/40s  10/10 shared iters
+
+running (0m45.0s), 10/15 VUs, 346 complete and 0 interrupted iterations
+navegacao   [  75% ] 10/10 VUs  0m45.0s/1m00.0s
+compra    ✓ [ 100% ] 5 VUs      04.2s/40s  10/10 shared iters
+
+running (0m46.0s), 10/15 VUs, 356 complete and 0 interrupted iterations
+navegacao   [  77% ] 10/10 VUs  0m46.0s/1m00.0s
+compra    ✓ [ 100% ] 5 VUs      04.2s/40s  10/10 shared iters
+
+running (0m47.0s), 09/15 VUs, 366 complete and 0 interrupted iterations
+navegacao   [  78% ] 09/10 VUs  0m47.0s/1m00.0s
+compra    ✓ [ 100% ] 5 VUs      04.2s/40s  10/10 shared iters
+
+running (0m48.0s), 09/15 VUs, 375 complete and 0 interrupted iterations
+navegacao   [  80% ] 09/10 VUs  0m48.0s/1m00.0s
+compra    ✓ [ 100% ] 5 VUs      04.2s/40s  10/10 shared iters
+
+running (0m49.0s), 08/15 VUs, 384 complete and 0 interrupted iterations
+navegacao   [  82% ] 08/10 VUs  0m49.0s/1m00.0s
+compra    ✓ [ 100% ] 5 VUs      04.2s/40s  10/10 shared iters
+
+running (0m50.0s), 07/15 VUs, 392 complete and 0 interrupted iterations
+navegacao   [  83% ] 07/10 VUs  0m50.0s/1m00.0s
+compra    ✓ [ 100% ] 5 VUs      04.2s/40s  10/10 shared iters
+
+running (0m51.0s), 07/15 VUs, 399 complete and 0 interrupted iterations
+navegacao   [  85% ] 07/10 VUs  0m51.0s/1m00.0s
+compra    ✓ [ 100% ] 5 VUs      04.2s/40s  10/10 shared iters
+
+running (0m52.0s), 06/15 VUs, 404 complete and 0 interrupted iterations
+navegacao   [  87% ] 06/10 VUs  0m52.0s/1m00.0s
+compra    ✓ [ 100% ] 5 VUs      04.2s/40s  10/10 shared iters
+
+running (0m53.0s), 06/15 VUs, 409 complete and 0 interrupted iterations
+navegacao   [  88% ] 06/10 VUs  0m53.0s/1m00.0s
+compra    ✓ [ 100% ] 5 VUs      04.2s/40s  10/10 shared iters
+
+running (0m54.0s), 05/15 VUs, 415 complete and 0 interrupted iterations
+navegacao   [  90% ] 05/10 VUs  0m54.0s/1m00.0s
+compra    ✓ [ 100% ] 5 VUs      04.2s/40s  10/10 shared iters
+
+running (0m55.0s), 04/15 VUs, 420 complete and 0 interrupted iterations
+navegacao   [  92% ] 04/10 VUs  0m55.0s/1m00.0s
+compra    ✓ [ 100% ] 5 VUs      04.2s/40s  10/10 shared iters
+
+running (0m56.0s), 04/15 VUs, 423 complete and 0 interrupted iterations
+navegacao   [  93% ] 04/10 VUs  0m56.0s/1m00.0s
+compra    ✓ [ 100% ] 5 VUs      04.2s/40s  10/10 shared iters
+
+running (0m57.0s), 03/15 VUs, 427 complete and 0 interrupted iterations
+navegacao   [  95% ] 03/10 VUs  0m57.0s/1m00.0s
+compra    ✓ [ 100% ] 5 VUs      04.2s/40s  10/10 shared iters
+
+running (0m58.0s), 02/15 VUs, 430 complete and 0 interrupted iterations
+navegacao   [  97% ] 02/10 VUs  0m58.0s/1m00.0s
+compra    ✓ [ 100% ] 5 VUs      04.2s/40s  10/10 shared iters
+
+running (0m59.0s), 02/15 VUs, 432 complete and 0 interrupted iterations
+navegacao   [  98% ] 02/10 VUs  0m59.0s/1m00.0s
+compra    ✓ [ 100% ] 5 VUs      04.2s/40s  10/10 shared iters
+
+running (1m00.0s), 01/15 VUs, 434 complete and 0 interrupted iterations
+navegacao   [ 100% ] 01/10 VUs  1m00.0s/1m00.0s
+compra    ✓ [ 100% ] 5 VUs      04.2s/40s  10/10 shared iters
+time="2026-11-27T13:25:26Z" level=info msg="Estoque do Teclado: 10 → 0 (esperado: 0)" source=console
+
+
+  █ THRESHOLDS 
+
+    checks
+    ✓ 'rate>0.99' rate=100.00%
+
+    http_req_duration{name:checkout}
+    ✓ 'p(95)<1000' p(95)=77.03ms
+
+    http_req_duration{name:previa}
+    ✓ 'p(95)<1000' p(95)=30.95ms
+
+    http_req_duration{scenario:navegacao}
+    ✓ 'p(95)<1000' p(95)=30.54ms
+
+    http_req_failed
+    ✓ 'rate<0.01' rate=0.00%
+
+
+  █ TOTAL RESULTS 
+
+    checks_total.......: 1801    29.97007/s
+    checks_succeeded...: 100.00% 1801 out of 1801
+    checks_failed......: 0.00%   0 out of 1801
+
+    ✓ cadastro: status 201
+    ✓ login: status 200
+    ✓ login: devolve token
+    ✓ adicionar: status 201
+    ✓ alterar: subtotal 179,80
+    ✓ previa: total 181,82
+    ✓ esvaziar: carrinho vazio
+    ✓ previa: total 270,00
+    ✓ checkout: status 201
+    ✓ checkout: total 270,00
+    ✓ estoque final do Teclado = inicial − compras
+
+    HTTP
+    http_req_duration..............: avg=18.36ms min=1.02ms  med=4.8ms   max=833.09ms p(90)=15.5ms  p(95)=51.23ms
+      { expected_response:true }...: avg=18.36ms min=1.02ms  med=4.8ms   max=833.09ms p(90)=15.5ms  p(95)=51.23ms
+      { name:checkout }............: avg=58.04ms min=38.52ms med=55.87ms max=82.82ms  p(90)=71.25ms p(95)=77.03ms
+      { name:previa }..............: avg=7.82ms  min=1.9ms   med=3.76ms  max=454.94ms p(90)=11.69ms p(95)=30.95ms
+      { scenario:navegacao }.......: avg=13.74ms min=1.02ms  med=4.74ms  max=833.09ms p(90)=11.44ms p(95)=30.54ms
+    http_req_failed................: 0.00%  0 out of 2197
+    http_reqs......................: 2197   36.559824/s
+
+    EXECUTION
+    iteration_duration.............: avg=1.09s   min=1.01s   med=1.02s   max=2.16s    p(90)=1.08s   p(95)=1.77s  
+    iterations.....................: 435    7.238745/s
+    vus............................: 1      min=0         max=15
+    vus_max........................: 15     min=15        max=15
+
+    NETWORK
+    data_received..................: 1.0 MB 17 kB/s
+    data_sent......................: 666 kB 11 kB/s
+
+
+
+
+running (1m00.1s), 00/15 VUs, 435 complete and 0 interrupted iterations
+navegacao ✓ [ 100% ] 00/10 VUs  1m0s      
+compra    ✓ [ 100% ] 5 VUs      04.2s/40s  10/10 shared iters

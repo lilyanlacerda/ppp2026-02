@@ -14,7 +14,7 @@
 |---|---|
 | **Identificador** | `RI-LOJAPPP-001` |
 | **Título** | Relatórios de Incidente — Loja PPP |
-| **Versão** | 1.0 |
+| **Versão** | 1.1 (27/11/2026: inclusão do BUG-008, encontrado nos testes de performance) |
 | **Data** | 26/11/2026 |
 | **Autora** | Lilyan Lacerda (QA) |
 | **Item de teste** | IT-01 API REST e IT-02 Site Web, versão 1.0.0, commit `f134da6` |
@@ -40,13 +40,14 @@
 | [BUG-005](#bug-005--cadastro-aceita-senha-formada-só-por-espaços) | Cadastro aceita senha formada só por espaços | 🟢 Baixa | P3 | Em análise (PO) | CT-API-AUTH-10, CT-WEB-CAD-10 |
 | [BUG-006](#bug-006--prévia-do-checkout-cobra-frete-com-o-carrinho-vazio) | Prévia do checkout cobra frete com o carrinho vazio | 🟢 Baixa | P3 | Em análise (PO) | CT-API-CHK-16 |
 | [BUG-007](#bug-007--esquema-de-autenticação-bearer-em-minúsculas-é-recusado) | Esquema de autenticação `bearer` em minúsculas é recusado | 🟢 Baixa | P3 | Aberto | CT-API-SEC-06 |
+| [BUG-008](#bug-008--login-sob-carga-ultrapassa-a-meta-de-tempo-e-deixa-toda-a-api-lenta) | Login sob carga ultrapassa a meta de tempo e deixa toda a API lenta | 🟡 Média | P2 | Aberto | PERF-02 |
 
-**Totais:** 7 defeitos · 🔴 Crítica 1 · 🟠 Alta 0 · 🟡 Média 3 · 🟢 Baixa 3.
+**Totais:** 8 defeitos · 🔴 Crítica 1 · 🟠 Alta 0 · 🟡 Média 4 · 🟢 Baixa 3.
 
 | Funcionalidade | Defeitos |
 |---|---|
 | Finalização de compra | BUG-001, BUG-006 |
-| Login e autenticação | BUG-002, BUG-007 |
+| Login e autenticação | BUG-002, BUG-007, BUG-008 |
 | Carrinho | BUG-004 |
 | Cadastro | BUG-005 |
 | Geral (tratamento de erros) | BUG-003 |
@@ -364,6 +365,58 @@ Comparar sem diferenciar maiúsculas: `scheme?.toLowerCase() !== 'bearer'`.
 
 ---
 
+### BUG-008 — Login sob carga ultrapassa a meta de tempo e deixa toda a API lenta
+
+| Campo | Conteúdo |
+|---|---|
+| **Severidade / Prioridade** | 🟡 **Média** / **P2** |
+| **Status** | Aberto |
+| **Data / Autora** | 27/11/2026 · Lilyan Lacerda |
+| **Item e versão** | IT-01 API REST · 1.0.0 (`f134da6`) |
+| **Endpoint** | `POST /api/auth/login` (e `POST /api/auth/register`); efeito colateral em **todas** as rotas |
+| **Caso de teste** | PERF-02 (❌ nas duas metas) · sinal também no PERF-03 |
+| **Requisitos / riscos** | RNF02 · RP09 (exposição 4) · ISO 25010: Eficiência de desempenho (comportamento no tempo, capacidade) |
+| **Reprodutibilidade** | Bloqueio: 100%, nas 2 máquinas testadas. Metas reprovadas: 3/3 execuções no ambiente de referência (p95 do login de 800, 814 e 804 ms); no Mac da autora, mais rápido, as metas passam |
+
+**Descrição**
+
+No ambiente de referência (Linux, 4 vCPUs), com até 20 usuários fazendo login ao mesmo tempo, o p95 do login fica **acima da meta de 800 ms** do Plano de Testes. Mais grave: enquanto os logins acontecem, **a API inteira fica lenta**. A listagem de produtos, que responde em 4,6 ms (p95) sem carga, passa para **431 ms** (p95), ou seja, **~93× mais lenta**, embora não tenha nada a ver com login. A vazão de login estabiliza em **~8 logins/s**, sinal de saturação.
+
+**Passos para reproduzir**
+1. `npm run test:perf` (ou `npm start` e `k6 run performance/perf-02-carga-login.js`).
+2. Comparar o p95 de `name:produtos` no PERF-01 (sem login) com o do PERF-02 (com login em paralelo).
+
+| Métrica | Esperado (meta) | Obtido |
+|---|---|---|
+| Login, p95 com até 20 usuários | < 800 ms | **803,92 ms** |
+| Listagem de produtos, p95 durante os logins | < 300 ms | **430,97 ms** (sem carga de login: 4,65 ms) |
+| Login isolado (mínimo) | — | 89 ms |
+| Vazão de login | — | ~8,1 logins/s (490 logins em 60 s) |
+| Erros | < 1% | 0% (a API fica lenta, mas não falha) |
+
+**Reprodução em uma segunda máquina (Mac da autora):** as metas passaram (login p95 115 ms; produtos p95 89 ms), mas o bloqueio continua visível: durante os logins, a **mediana** da leitura de produtos foi de **40,6 ms**, contra **0,38 ms** no melhor caso, cerca de 100 vezes mais. Detalhes na [seção 6.4 do documento 07](07-performance-k6.md#64-reprodução-em-uma-segunda-máquina-mac-da-autora).
+
+**Por que a severidade continua Média:** o limite de capacidade (um único núcleo para todos os logins) existe em qualquer máquina; o hardware só muda o ponto em que ele aparece. Servidores de nuvem costumam ter vCPUs comparáveis às do ambiente de referência, e um ataque de força bruta ou um pico de acessos alcança esse limite facilmente.
+
+**Evidências**
+- [perf-02-saida.txt](evidencias/k6/perf-02-saida.txt) e [perf-02-resumo.json](evidencias/k6/perf-02-resumo.json): resultado do k6.
+- [perf-02-dashboard.png](evidencias/k6/perf-02-dashboard.png): vazão estaciona enquanto o p95 sobe.
+- [perf-01-saida.txt](evidencias/k6/perf-01-saida.txt): linha de base sem login (p95 4,65 ms).
+- [Documento 07](07-performance-k6.md): análise completa.
+
+**Análise de causa provável**
+
+`src/routes/auth.js` (linhas 32 e 46) usa a biblioteca **`bcryptjs`**, uma implementação de bcrypt em **JavaScript puro**. O Node.js executa JavaScript em **uma única thread** (*event loop*): cada `bcrypt.compare` ocupa essa thread por ~89 ms (custo 10), e nesse tempo **nenhuma outra requisição é atendida**. A capacidade máxima fica em torno de 1000 ms ÷ 89 ms ≈ 11 operações de bcrypt por segundo, e todas as outras rotas esperam na mesma fila. O custo alto do bcrypt é proposital (protege contra força bruta); o problema é ele **bloquear o servidor**.
+
+**Sugestão de correção**
+- Trocar `bcryptjs` pela biblioteca nativa **`bcrypt`** (ou `argon2`), que calcula o hash no *thread pool* do libuv, **fora** do *event loop*. O login continua custoso, mas deixa de travar as outras rotas.
+- Em produção: rodar várias instâncias (modo *cluster* ou réplicas), para usar todos os núcleos da máquina.
+- Limitar tentativas de login por IP/e-mail (ver MEL-03), o que também reduz o risco de alguém derrubar a API com logins em massa.
+
+> **Ressalva (Plano, risco RJ05):** os valores absolutos mudam conforme o hardware, como mostra a comparação entre as duas máquinas; o bloqueio do *event loop* aconteceu em ambas.
+
+---
+
 ## 3. Sugestões de melhoria (não são defeitos)
 
 Observações registradas durante a execução que **não violam** requisitos nem o contrato, mas merecem avaliação do PO:
@@ -390,3 +443,4 @@ Cada defeito deste documento corresponde a uma **Issue** no repositório, aberta
 | BUG-005 | _a criar_ |
 | BUG-006 | _a criar_ |
 | BUG-007 | _a criar_ |
+| BUG-008 | _a criar_ |

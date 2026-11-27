@@ -48,12 +48,12 @@ As regras de negócio que mais impactam o cliente, e por isso receberam mais ate
 | 4 | [Report de Bugs](docs/qa/04-report-de-bugs.md) | Defeitos encontrados, com evidências e Issues no GitHub | ✅ Concluído |
 | 5 | [Automação Web — Cypress](docs/qa/05-automacao-web-cypress.md) | Casos E2E automatizados (`cypress/e2e/`) | ✅ Concluído |
 | 6 | [Automação API — JavaScript](docs/qa/06-automacao-api.md) | Casos de API automatizados (`test/api/`) | ✅ Concluído |
-| 7 | [Performance — k6](docs/qa/07-performance-k6.md) | Cenários de smoke, carga e jornada de compra (`performance/`) | 🚧 Em andamento |
+| 7 | [Performance — k6](docs/qa/07-performance-k6.md) | Cenários de smoke, carga e jornada de compra (`performance/`) | ✅ Concluído |
 | 8 | [Relatório de Conclusão](docs/qa/08-relatorio-de-conclusao.md) | Resultados, métricas e risco residual | 🚧 Em andamento |
 
 ## 🐞 Destaques: bugs encontrados
 
-**7 defeitos reais** confirmados e reproduzidos com evidências (logs, prints e consulta ao banco). Detalhes, passos e análise de causa no [Report de Bugs](docs/qa/04-report-de-bugs.md):
+**8 defeitos reais** confirmados e reproduzidos com evidências (logs, prints, consulta ao banco e testes de carga). Detalhes, passos e análise de causa no [Report de Bugs](docs/qa/04-report-de-bugs.md):
 
 | ID | Severidade | Defeito |
 |---|---|---|
@@ -64,6 +64,7 @@ As regras de negócio que mais impactam o cliente, e por isso receberam mais ate
 | BUG-005 | 🟢 Baixa | Cadastro aceita senha formada só por espaços |
 | BUG-006 | 🟢 Baixa | Prévia do checkout com carrinho vazio cobra R$ 20,00 de frete |
 | BUG-007 | 🟢 Baixa | Esquema `bearer` em minúsculas é recusado (RFC 9110) |
+| BUG-008 | 🟡 Média | Performance: cada login **trava a API inteira** (bcrypt em JavaScript puro bloqueia o Node.js). Com 20 logins simultâneos, a leitura de produtos fica ~93× mais lenta e o login passa da meta no ambiente de referência; reproduzido também em um Mac, com impacto menor |
 
 ## 🧠 Abordagem
 
@@ -109,7 +110,7 @@ Suba a aplicação (fica em http://localhost:3030):
 npm start
 ```
 
-Rode as suítes (`test:web` e `test:api` sobem a aplicação sozinhos):
+Rode as suítes (cada `test:*` sobe a aplicação sozinho):
 
 ```bash
 npm run test:api
@@ -123,7 +124,7 @@ npm run test:web
 npm run test:perf
 ```
 
-> ⚠️ O banco é em memória: reiniciar a aplicação restaura os dados de teste. As suítes Web e API já estão disponíveis; a de performance entra com o entregável 7. Para reproduzir o BUG-001 automaticamente: `npm run test:api:bugs`.
+> ⚠️ O banco é em memória: reiniciar a aplicação restaura os dados de teste. Para reproduzir o BUG-001 automaticamente: `npm run test:api:bugs`. A performance exige o [k6](https://grafana.com/docs/k6/latest/set-up/install-k6/) instalado e a aplicação **parada** antes do `test:perf` (o PERF-03 precisa do estoque inicial). Dependendo do hardware, o PERF-02 pode reprovar nas metas por causa do BUG-008.
 
 ## 📁 Estrutura do repositório
 
